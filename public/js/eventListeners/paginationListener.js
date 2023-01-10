@@ -1,8 +1,8 @@
-import { store } from "../utils/store.js";
-import { storeUpdate } from "../utils/storeUpdate.js";
-import { paginationBtnsDisabled } from "../paginationBtnsDisabled.js";
+import { store } from "../store/store.js";
+import { storeUpdate } from "../store/storeUpdate.js";
 import { renderGarage } from "../ui-render/renderGarage.js";
 import { renderWinners } from "../ui-render/renderWinners.js";
+import { paginationBtnsDisabled } from "./../utils/paginationBtnsDisabled.js";
 
 export const paginationListener = async () => {
   const prevBtn = document.getElementById("prev");

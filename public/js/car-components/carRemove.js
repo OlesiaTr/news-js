@@ -1,7 +1,7 @@
 import { store } from "../store/store.js";
 import { storeUpdate } from "../store/storeUpdate.js";
-import { deleteCar } from "./apiGarage.js";
-import { deleteWinner } from "./apiWinners.js";
+import { deleteCar } from "../api/apiGarage.js";
+import { deleteWinner } from "../api/apiWinners.js";
 import { renderGarage } from "../ui-render/renderGarage.js";
 import { renderWinners } from "../ui-render/renderWinners.js";
 

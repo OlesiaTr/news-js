@@ -1,4 +1,4 @@
-import { getCar, updateCar } from "./apiGarage.js";
+import { getCar, updateCar } from "../api/apiGarage.js";
 import { storeUpdate } from "../store/storeUpdate.js";
 import { renderGarage } from "../ui-render/renderGarage.js";
 import { renderWinners } from "../ui-render/renderWinners.js";

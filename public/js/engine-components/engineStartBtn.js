@@ -1,4 +1,4 @@
-import { startEngine, switchEngine } from "./apiEngine.js";
+import { startEngine, switchEngine } from "../api/apiEngine.js";
 import { getDistance } from "../utils/getDistance.js";
 import { getAnimation } from "../utils/getAnimation.js";
 import { store } from "../store/store.js";

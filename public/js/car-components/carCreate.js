@@ -1,6 +1,6 @@
-import { createCar } from "./apiGarage.js";
 import { renderGarage } from "../ui-render/renderGarage.js";
 import { storeUpdate } from "../store/storeUpdate.js";
+import { createCar } from "../api/apiGarage.js";
 
 export const carCreate = async () => {
   const createForm = document.querySelector("#create");

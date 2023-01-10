@@ -1,13 +1,13 @@
-import { navListener } from "./navListener.js";
-import { generatorListener } from "./generatorListener.js";
-import { paginationListener } from "./paginationListener.js";
-import { paginationBtnsDisabled } from "../paginationBtnsDisabled.js";
+import { navListener } from "../eventListeners/navListener.js";
+import { generatorListener } from "../eventListeners/generatorListener.js";
+import { paginationListener } from "../eventListeners/paginationListener.js";
 import { renderGarage } from "./renderGarage.js";
 import { renderWinners } from "./renderWinners.js";
 import { carCreate } from "../car-components/carCreate.js";
 import { carUpdate } from "../car-components/carUpdate.js";
 import { carRemove } from "../car-components/carRemove.js";
-import { engineControlsListener } from "./engineControlsListener.js";
+import { engineControlsListener } from "../eventListeners/engineControlsListener.js";
+import { paginationBtnsDisabled } from "./../utils/paginationBtnsDisabled.js";
 
 export const renderRoot = async () => {
   const render = `

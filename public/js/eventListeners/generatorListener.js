@@ -1,6 +1,6 @@
-import { getRandomCars } from "../getRandomCars.js";
-import { createCar } from "./apiGarage.js";
-import { storeUpdate } from "../utils/storeUpdate.js";
+import { getRandomCars } from "../utils/getRandomCars.js";
+import { createCar } from "../api/apiGarage.js";
+import { storeUpdate } from "../store/storeUpdate.js";
 import { renderGarage } from "../ui-render/renderGarage.js";
 
 export const generatorListener = async () => {

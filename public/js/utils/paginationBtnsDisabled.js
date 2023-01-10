@@ -1,4 +1,4 @@
-import { store } from "./utils/store.js";
+import { store } from "../store/store.js";
 
 const GARAGE_CARS_PER_PAGE = 7;
 const WINNERS_CARS_PER_PAGE = 10;

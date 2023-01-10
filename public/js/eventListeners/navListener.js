@@ -1,5 +1,5 @@
-import { store } from "../utils/store.js";
-import { paginationBtnsDisabled } from "../paginationBtnsDisabled.js";
+import { store } from "../store/store.js";
+import { paginationBtnsDisabled } from "../utils/paginationBtnsDisabled.js";
 
 export const navListener = async () => {
   const garageBtn = document.querySelector("#to-garage");

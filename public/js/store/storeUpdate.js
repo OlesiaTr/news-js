@@ -1,6 +1,6 @@
-import { getAllCars } from "./apiGarage.js.js";
-import { getAllWinners } from "./apiWinners.js.js";
-import { store } from "./store.js";
+import { getAllCars } from "../api/apiGarage.js";
+import { getAllWinners } from "../api/apiWinners.js";
+import { store } from "../store/store.js";
 
 const updateCars = async () => {
   const { items, records } = await getAllCars(store.carsPage);
