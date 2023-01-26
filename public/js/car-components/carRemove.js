@@ -1,31 +1,34 @@
-import { store } from "../store/store.js";
-import { storeUpdate } from "../store/storeUpdate.js";
-import { deleteCar } from "../api/apiGarage.js";
-import { deleteWinner } from "../api/apiWinners.js";
-import { renderGarage } from "../ui-render/renderGarage.js";
-import { renderWinners } from "../ui-render/renderWinners.js";
+import store from '../store/store.js';
+import storeUpdate from '../store/storeUpdate.js';
+import { deleteCar } from '../api/apiGarage.js';
+import { deleteWinner } from '../api/apiWinners.js';
+import renderGarage from '../ui-render/renderGarage.js';
+import renderWinners from '../ui-render/renderWinners.js';
 
-export const carRemove = async () => {
-  const controls = document.querySelectorAll(".track__controls--car");
-  const garageView = document.querySelector("#garage-view");
-  const winnersView = document.querySelector("#winners-view");
+const carRemove = async () => {
+  const controls = document.querySelectorAll('.track__controls--car');
+  const garageView = document.querySelector('#garage-view');
+  const winnersView = document.querySelector('.winners');
 
-  controls.forEach((car) =>
-    car.addEventListener("click", async (e) => {
-      if (store.selectedCarID !== null) return;
-      if (!e.target.className.includes("car__remove")) return;
+  async function onRemoveClick(e) {
+    if (store.selectedCarID !== null) return;
+    if (!e.target.className.includes('car__remove')) return;
 
-      store.selectedCarID = Number(e.target.id.split("remove-")[1]);
+    store.selectedCarID = Number(e.target.id.split('remove-')[1]);
 
-      await deleteCar(store.selectedCarID);
-      if (store.winners.find((car) => car.id === store.selectedCarID))
-        await deleteWinner(store.selectedCarID);
-      await storeUpdate();
+    if (store.winners.find((car) => car.id === store.selectedCarID)) {
+      await deleteWinner(store.selectedCarID);
+    }
+    await deleteCar(store.selectedCarID);
+    await storeUpdate();
 
-      garageView.innerHTML = renderGarage();
-      if (winnersView !== null) winnersView.innerHTML = renderWinners();
+    if (winnersView !== null) winnersView.innerHTML = renderWinners();
+    garageView.innerHTML = renderGarage();
 
-      store.selectedCarID = null;
-    })
-  );
+    store.selectedCarID = null;
+  }
+
+  controls.forEach((car) => car.addEventListener('click', onRemoveClick));
 };
+
+export default carRemove;

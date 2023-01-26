@@ -1,4 +1,4 @@
-export const store = {
+const store = {
   carsPage: 1,
   cars: [],
   carsCount: 1,
@@ -9,5 +9,7 @@ export const store = {
   sortBy: null,
   sortOrder: null,
   selectedCarID: null,
-  view: "garagePage",
+  view: 'garagePage',
 };
+
+export default store;

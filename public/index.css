@@ -1,5 +1,5 @@
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 400;
   background-color: #16213e;
   color: #e7f6f2;
@@ -71,12 +71,17 @@ svg {
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.btn:disabled {
+  color: #a5c9ca;
+  cursor: not-allowed;
+}
+
 .btn:hover {
   color: #a5c9ca;
 }
 
 .btn:after {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   bottom: 0;
@@ -143,4 +148,38 @@ svg {
   right: 0px;
   bottom: -30%;
   font-size: 70px;
+  z-index: -1;
+}
+
+.message-winner {
+  display: none;
+
+  text-align: center;
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  letter-spacing: 3px;
+  font-size: 50px;
+  font-weight: 900;
+  width: 500px;
+
+  color: #e94560;
+  text-shadow: 0 -1px 4px #16213e00, 0 -2px 10px #e7f6f24a, 0 -10px 20px #0f3460,
+    0 18px 40px #533483;
+}
+
+.message-winner.visible {
+  display: block;
+}
+
+table {
+  text-align: center;
+}
+
+.table__wins,
+.table__time {
+  cursor: pointer;
 }

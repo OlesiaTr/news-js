@@ -1,9 +1,10 @@
-import { getAllCars } from "../api/apiGarage.js";
-import { getAllWinners } from "../api/apiWinners.js";
-import { store } from "../store/store.js";
+import { getAllCars } from '../api/apiGarage.js';
+import { getAllWinners } from '../api/apiWinners.js';
+import store from './store.js';
 
 const updateCars = async () => {
   const { items, records } = await getAllCars(store.carsPage);
+
   store.cars = items;
   store.carsCount = records;
 };
@@ -14,11 +15,14 @@ const updateWinners = async () => {
     sort: store.sortBy,
     order: store.sortOrder,
   });
+
   store.winners = items;
   store.winnersCount = records;
 };
 
-export const storeUpdate = async () => {
+const storeUpdate = async () => {
   await updateCars();
   await updateWinners();
 };
+
+export default storeUpdate;

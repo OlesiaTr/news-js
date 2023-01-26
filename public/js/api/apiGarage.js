@@ -1,4 +1,4 @@
-const BASE_URL = "http://127.0.0.1:3000";
+const BASE_URL = 'http://127.0.0.1:3000';
 const garage = `${BASE_URL}/garage`;
 
 export const getCar = async (carId) => {
@@ -19,11 +19,12 @@ export const getAllCars = async (page, limit = 7) => {
     const res = await fetch(`${garage}?_limit=${limit}&_page=${page}`);
     const data = await res.json();
 
-    if (res.status === 200)
+    if (res.status === 200) {
       return {
         items: data,
-        records: Number(res.headers.get("X-Total-Count") || "0"),
+        records: Number(res.headers.get('X-Total-Count') || '0'),
       };
+    }
 
     return null;
   } catch (e) {
@@ -34,10 +35,10 @@ export const getAllCars = async (page, limit = 7) => {
 export const createCar = async (carBody) => {
   try {
     await fetch(garage, {
-      method: "POST",
+      method: 'POST',
       body: JSON.stringify(carBody),
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
     });
   } catch (e) {
@@ -48,7 +49,7 @@ export const createCar = async (carBody) => {
 export const deleteCar = async (carId) => {
   try {
     await fetch(`${garage}/${carId}`, {
-      method: "DELETE",
+      method: 'DELETE',
     });
   } catch (e) {
     throw new Error(e);
@@ -58,10 +59,10 @@ export const deleteCar = async (carId) => {
 export const updateCar = async (carId, carBody) => {
   try {
     await fetch(`${garage}/${carId}`, {
-      method: "PUT",
+      method: 'PUT',
       body: JSON.stringify(carBody),
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
     });
   } catch (e) {

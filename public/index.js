@@ -1,5 +1,5 @@
-import { renderRoot } from "./js/ui-render/index.js";
-import { storeUpdate } from "./js/store/index.js";
+import storeUpdate from './js/store/storeUpdate.js';
+import renderRoot from './js/ui-render/renderRoot.js';
 
 const initPage = async () => {
   await storeUpdate();

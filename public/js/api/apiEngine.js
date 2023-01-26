@@ -1,17 +1,14 @@
-const BASE_URL = "http://127.0.0.1:3000";
+const BASE_URL = 'http://127.0.0.1:3000';
 const engine = `${BASE_URL}/engine`;
 
 export const startEngine = async (carId) => {
   try {
     const res = await fetch(`${engine}?id=${carId}&status=started`, {
-      method: "PATCH",
+      method: 'PATCH',
     });
     const data = await res.json();
 
-    return {
-      status: res.status,
-      data,
-    };
+    return data;
   } catch (e) {
     throw new Error(e);
   }
@@ -20,7 +17,7 @@ export const startEngine = async (carId) => {
 export const stopEngine = async (carId) => {
   try {
     const res = await fetch(`${engine}?id=${carId}&status=stopped`, {
-      method: "PATCH",
+      method: 'PATCH',
     });
     const data = await res.json();
 
@@ -36,11 +33,10 @@ export const stopEngine = async (carId) => {
 export const switchEngine = async (carId) => {
   try {
     const res = await fetch(`${engine}?id=${carId}&status=drive`, {
-      method: "PATCH",
+      method: 'PATCH',
     });
-    const data = await res.json();
 
-    return res.status !== 200 ? { success: false } : data;
+    return res.status !== 200 ? { success: false } : res.json();
   } catch (e) {
     throw new Error(e);
   }

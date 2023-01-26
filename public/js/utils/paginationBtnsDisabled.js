@@ -1,13 +1,13 @@
-import { store } from "../store/store.js";
+import store from '../store/store.js';
 
 const GARAGE_CARS_PER_PAGE = 7;
 const WINNERS_CARS_PER_PAGE = 10;
 
-export const paginationBtnsDisabled = async () => {
-  const prevBtn = document.getElementById("prev");
-  const nextBtn = document.getElementById("next");
+const paginationBtnsDisabled = async () => {
+  const prevBtn = document.getElementById('prev');
+  const nextBtn = document.getElementById('next');
 
-  if (store.view === "garagePage") {
+  if (store.view === 'garagePage') {
     if (store.carsPage * GARAGE_CARS_PER_PAGE < store.carsCount) {
       nextBtn.disabled = false;
     } else {
@@ -20,7 +20,7 @@ export const paginationBtnsDisabled = async () => {
     }
   }
 
-  if (store.view === "winnersPage") {
+  if (store.view === 'winnersPage') {
     if (store.winnersPage * WINNERS_CARS_PER_PAGE < store.winnersCount) {
       nextBtn.disabled = false;
     } else {
@@ -33,3 +33,5 @@ export const paginationBtnsDisabled = async () => {
     }
   }
 };
+
+export default paginationBtnsDisabled;

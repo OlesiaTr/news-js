@@ -1,21 +1,21 @@
-import { getCar, updateCar } from "../api/apiGarage.js";
-import { storeUpdate } from "../store/storeUpdate.js";
-import { renderGarage } from "../ui-render/renderGarage.js";
-import { renderWinners } from "../ui-render/renderWinners.js";
-import { store } from "../store/store.js";
+import { getCar, updateCar } from '../api/apiGarage.js';
+import storeUpdate from '../store/storeUpdate.js';
+import renderGarage from '../ui-render/renderGarage.js';
+import renderWinners from '../ui-render/renderWinners.js';
+import store from '../store/store.js';
 
-export const carUpdate = async () => {
-  const updateForm = document.querySelector("#update");
-  const garageView = document.querySelector("#garage-view");
-  const winnersView = document.querySelector("#winners-view");
-  const controls = document.querySelectorAll(".track__controls--car");
+const carUpdate = async () => {
+  const updateForm = document.querySelector('#update');
+  const garageView = document.querySelector('#garage-view');
+  const winnersView = document.querySelector('.winners');
+  const controls = document.querySelectorAll('.track__controls--car');
 
-  controls.forEach((car) =>
-    car.addEventListener("click", async (e) => {
+  controls?.forEach(car =>
+    car.addEventListener('click', async e => {
       if (store.selectedCarID !== null) return;
-      if (!e.target.className.includes("car__select")) return;
+      if (!e.target.className.includes('car__select')) return;
 
-      store.selectedCarID = Number(e.target.id.split("select-")[1]);
+      store.selectedCarID = Number(e.target.id.split('select-')[1]);
       const { id, name, color } = await getCar(store.selectedCarID);
 
       updateForm[0].value = name;
@@ -25,17 +25,18 @@ export const carUpdate = async () => {
       updateForm[1].disabled = false;
       updateForm[2].disabled = false;
 
-      updateForm.addEventListener("submit", async (e) => {
-        e.preventDefault();
-        const newName = e.target[0].value;
-        const newColor = e.target[1].value;
+      updateForm.addEventListener('submit', async ev => {
+        ev.preventDefault();
+        const newName = ev.target[0].value;
+        const newColor = ev.target[1].value;
 
         await updateCar(id, { name: newName, color: newColor });
         await storeUpdate();
 
-        garageView.innerHTML = renderGarage();
-        if (store.winners.find((car) => car.id === store.selectedCarID))
+        if (store.winners.find(car1 => car1.id === store.selectedCarID)) {
           winnersView.innerHTML = renderWinners();
+        }
+        garageView.innerHTML = renderGarage();
         updateForm.reset();
 
         updateForm[0].disabled = true;
@@ -47,3 +48,5 @@ export const carUpdate = async () => {
     })
   );
 };
+
+export default carUpdate;

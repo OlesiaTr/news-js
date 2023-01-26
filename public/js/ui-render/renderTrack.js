@@ -1,6 +1,6 @@
-import { renderCarSvg } from "./renderCarSvg.js";
+import renderCarSvg from './renderCarSvg.js';
 
-export const renderTrack = ({ id, name, color }) => `
+const renderTrack = ({ id, name, color }) => `
     <div class="track">
         <div class="track__controls">
             <div class="track__controls--car">
@@ -23,3 +23,5 @@ export const renderTrack = ({ id, name, color }) => `
         <div id="message-broke-down-engine-${id}" class="message" display="none"></div>
     </div>
 `;
+
+export default renderTrack;

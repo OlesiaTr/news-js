@@ -1,5 +1,5 @@
-export const renderCarSvg = (color) => `<?xml version="1.0" standalone="no"?>
-<svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+const renderCarSvg = (color) => `<?xml version="1.0" standalone="no"?>
+<svg class="car__svg" version="1.0" xmlns="http://www.w3.org/2000/svg"
  width="1280.000000pt" height="640.000000pt" viewBox="0 0 1280.000000 640.000000"
  preserveAspectRatio="xMidYMid meet">
 <g transform="translate(0.000000,640.000000) scale(0.100000,-0.100000)"
@@ -92,3 +92,5 @@ l26 0 -7 123 c-10 179 -15 207 -36 207 -10 0 -63 -48 -119 -107z"/>
 </g>
 </svg>
 `;
+
+export default renderCarSvg;
