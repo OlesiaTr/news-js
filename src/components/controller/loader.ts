@@ -22,6 +22,7 @@ class Loader {
         if (!res.ok) {
             if (res.status === Errors.Unauthorized || res.status === Errors.NotFound)
                 console.log(`Sorry, but there is ${res.status} error: ${res.statusText}`);
+
             throw Error(res.statusText);
         }
         return res;
