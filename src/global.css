@@ -1,0 +1,82 @@
+body {
+    color: #fff;
+    background: #17181c;
+    font-family: sans-serif;
+}
+
+main {
+    min-height: 100vh;
+}
+
+a {
+    color: inherit;
+}
+
+header {
+    padding: 10px 30px;
+}
+
+header h1 {
+    font-size: 40px;
+    font-weight: 800;
+}
+
+.footer {
+    height: 100px;
+
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    align-items: center;
+
+    padding: 10px 0;
+    line-height: 24px;
+
+    background-color: #ffffff;
+}
+
+footer .copyright,
+footer .author {
+    font-size: 14px;
+    color: #5ad67d;
+    text-align: center;
+}
+footer .copyright a,
+footer .author a {
+    color: #5ad67d;
+}
+footer .copyright a:hover,
+footer .author a:hover {
+    color: #30c5ff;
+}
+footer .copyright:before {
+    content: '©';
+}
+
+.footer__logo-svg {
+    width: 100px;
+}
+
+@media (min-width: 320px) {
+    header h1 {
+        font-size: 20px;
+        font-weight: 600;
+        text-shadow: 0 0 10px rgb(25, 24, 24), 0 0 10px #30c5ff, 0 0 10px #30c5ff, 0 0 12px #30c5ff, 0 0 12px #30c5ff,
+            0 0 12px #30c5ff, 0 0 12px #30c5ff;
+    }
+    .footer {
+        line-height: 16px;
+    }
+
+    footer .copyright {
+        font-size: 12px;
+    }
+}
+@media (min-width: 640px) {
+    header h1 {
+        font-size: 40px;
+        font-weight: 800;
+        text-shadow: 0 0 10px rgb(25, 24, 24), 0 0 10px #30c5ff, 0 0 10px #30c5ff, 0 0 12px #30c5ff, 0 0 12px #30c5ff,
+            0 0 12px #30c5ff, 0 0 12px #30c5ff;
+    }
+}
